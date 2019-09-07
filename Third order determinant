@@ -1,0 +1,33 @@
+// This is the programme in C language for calculating 3*3 matrix.....
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int i,j,a[3][3],n;
+clrscr();
+printf("Enter the elements of the determinant");
+for(i=0;i<3;i++)
+{
+for(j=0;j<3;j++)
+{
+scanf("%d",&a[i][j]);
+}
+}
+//scan the elements
+printf("\n The matrix is ");
+for(i=0;i<3;i++)
+{
+printf("\n");
+{
+for(j=0;j<3;j++)
+{
+printf("%d \t,a[i][j]");
+}
+}
+// shows the matrix
+n=a[0][0]* ((a[1][1]*a[2][2]) - (a[2][1]*a[1][2])) -a[0][1] * (a[1][0]
+   * a[2][2] - a[2][0] * a[1][2]) + a[0][2] * (a[1][0] * a[2][1] - a[2][0] * a[1][1]);
+  printf("\n determinant is %d",n);
+  // calculates the third order determinant.
+  getch();
+  }
