@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    float a,x,b,y,abs_a,rel_a,abs_b,rel_b,ext_sum,abs_sum,abssum_err,abs_diff,ext_diff,absdiff_err,m,n;
+    printf("Enter the exact value of a :"); // approximate value
+scanf("\n %f",&a);
+printf("Enter the absolute  value a:"); // approximate value
+scanf("\n %f",&x);
+if(a<0) // removing the negation as absolute doesn't support  float! 
+{
+    a=a*(-1);
+}
+if(x<0) // removing the negation as absolute doesn't support  float! 
+{
+    x=x*(-1);
+}
+abs_a=(a-x);// absolute error
+if(abs_a<0) // removing the negation as absolute doesn't support  float! 
+{
+    abs_a=abs_a*(-1);
+}
+printf("\n The absolute error of a is : %f ",abs_a);
+rel_a=abs_a/(a);  // relative error
+printf("\n The relative error of a  is : %f ",rel_a);
+// This was for a
+// Now for b
+
+printf("\n Enter the exact value of b:"); // exact value
+scanf(" %f",&b);
+printf(" Enter the absolute  value b:"); // approximate value
+scanf("\n %f",&y);
+if(b<0) // removing the negation as absolute doesn't support  float! 
+{
+    b=b*(-1);
+}
+if(y<0) // removing the negation as absolute doesn't support  float! 
+{
+    y=y*(-1);
+}
+abs_b=(b-y);  // absolute error
+printf("\n The absolute error of b  is : %f ",abs_b);
+rel_b=abs_b/(b);  // relative error
+printf("\n The relative error of b   is : %f ",rel_b);
+ext_sum=a+b;
+abs_sum=x+y;
+abssum_err=(ext_sum-abs_sum);
+if(abssum_err<0)
+{
+    abssum_err=abssum_err*(-1);
+}
+printf("\n Absolute error in sum is :  %f  ",abssum_err);
+ext_diff=a-b;
+abs_diff=x-y;
+absdiff_err=(ext_diff-abs_diff);
+if(absdiff_err<0)
+{
+    absdiff_err=absdiff_err*(-1);
+}
+printf("\n Absolute error in difference is :  %f  ",absdiff_err);
+m=abs_a+abs_b;
+printf(" \n Absolute individual error sum is : %f",m);
+n=abs_a-abs_b;
+printf(" \n Absolute individual error difference is : %f",n);
+if(abssum_err<=m) // Condition
+{
+    printf("\n Theorem sum is true");
+}
+else
+{
+    printf("\n Sum theorem is not satisfied");
+}
+// This was theorem for Sum.....
+
+if(absdiff_err<=n) // Condition
+{
+    printf("\n Theorem difference is true");
+}
+else
+{
+    printf("\n Difference theorem is not satisfied");
+}
+// This was the theorem for difference.....
+getch();
+}
