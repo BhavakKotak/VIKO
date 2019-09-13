@@ -1,0 +1,94 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication1;
+
+/**
+ *
+ * @author kotak
+ */
+import java.util.Scanner; // used to take input
+public class JavaApplication1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        System.out.println("Enter height");
+        Scanner in =new Scanner(System.in);
+        int height = in.nextInt();        
+        System.out.println("Enter length");
+        int length = in.nextInt();
+        System.out.println("Enter X coordinate1");
+        double x1 = in.nextInt();
+        System.out.println("Enter X coordinate2");
+        double x2 = in.nextInt();
+        System.out.println("Enter Y coordinate1");
+        double y1 = in.nextInt();
+        System.out.println("Enter Y coordinate2");
+        double y2 = in.nextInt();
+        Rectangle r= new Rectangle();
+        r.height = height;
+        r.length = length;
+        r.x1=x1;
+        r.x2=x2;
+        r.y1=y1;
+        r.y2=y2;
+          System.out.println("Area size:" + r.getAreasize());
+         System.out.println("Perimeter:" + r.getPerimeter());
+         System.out.println("Diagonal length" + r.getDiagonallength());
+        System.out.println("X coordinate at diagonal crossing is :" +r.getXcoordinate());
+         System.out.println("Y coordinate at diagonal crossing is :" +r.getYcoordinate());
+    }
+    
+}
+
+
+
+
+
+
+
+
+// Rectangle class
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication1;
+
+/**
+ *
+ * @author kotak
+ */
+public class Rectangle {
+   public int height;
+   public int length;
+   public double x1,x2;
+    public double y1,y2;
+   
+   public int getAreasize() {
+       return height * length; 
+       
+     
+   }
+    public int getPerimeter() {
+       return 2*(height + length); 
+       
+    }
+    public double getDiagonallength() {
+       return Math. sqrt(Math. pow(length,2)+Math. pow(height,2)); 
+    } 
+    public double getXcoordinate(){
+        return (x1+x2)/2;
+    }
+    public double getYcoordinate(){
+        return (y1+y2)/2;
+    }  
+    }
+    
