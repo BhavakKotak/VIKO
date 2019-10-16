@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+#define e 0.000001//epsilon
+#define f(x)  x*log10(x) - 1.2 //equation
+int main()
+{
+     float x0, x1, x2, f0, f1, f2;
+	 int i=1;//number of iterations
+	 printf("Enter a and b");
+	 scanf("%f %f",&x0,&x1);
+	  f0=f(x0);
+	 f1=f(x1);
+	  if( f1*f2 > 0.0)
+	 {
+		  printf("Please select other value of a and b \n");
+	 }
+	 printf("\nStep\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
+	 do
+	 {
+		  x2 = x0 - (((x0-x1) * f0)/(f0-f1));//formula for crossing method
+		  f2 = f(x2);
+		  printf("%d\t\t%f\t%f\t%f\t%f\n",i, x0, x1, x2, f2);
+		
+		  if(f0*f2 < 0)
+		  {
+			   x1 = x2;
+			   f1 = f2;
+		  }
+		  else
+		  {
+			   x0 = x2;
+			   f0 = f2;
+		  }
+		  i=i+1;
+	
+	 }while(fabs(f2)>e);//approximation by accuracy check
+
+	 printf("\nRoot is: %f", x2);
+	 return 0;
+}
+
