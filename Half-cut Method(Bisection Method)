@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#define e 0.001			//defining epsilon value
+#define f(x) x*x*x -4*x +1	//equation
+int
+main ()
+{
+  float x0, x1, x2;		//a and b are extreme points of interval
+  float f0, f1, f2;
+  int i = 0;			//no. of iterations
+  printf ("\nEnter a and b");
+  scanf ("\n%f %f", &x0, &x1);
+  do
+    {
+      f0 = f (x0);
+      f1 = f (x1);
+      x2 = (x0 + x1) / 2;
+      f2 = f (x2);
+      if (f0 * f2 < 0)
+	{
+	  x1 = x2;		//if f0*f2<0 then x2 i.e the midpoint becomes the upper bound for next iteration=>the interval is cut down from the right side
+	}
+      else
+	{
+	  x0 = x2;		//if f0*f2>0 the the value of midpoint is transferred to x0i.e the midpoint becomes the lower bound for next iteration=>the interval is cut down from the left side
+	}
+      i++;
+      printf ("\nIterations=%d", i);
+      printf ("\nroot is %f", x2);
+    }
+  while (fabs (f2) > e);	//the above iteration runs until absolute value of f2 is greater than e
+  return 0;
+}
